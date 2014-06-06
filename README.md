@@ -7,6 +7,12 @@ Google Calendar V3 provides an API client that can be authenticated
 using the following:
     access_token, refresh_token, client_id, and client_secret
 
+How to Install:
+
+```
+pip install GoogleCalendarV3
+```
+
 Once authenticated you can easily call any of the methods for the
 various resources associated with the API.
 
