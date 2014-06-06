@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='GoogleCalendarV3',
-    version='0.1.2',
+    version='0.1.3',
     author='Ashutosh Priyadarshy',
     author_email='static@siftcal.com',
     packages=['google_calendar_v3', 'google_calendar_v3.test'],
