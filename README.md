@@ -34,7 +34,7 @@ client_secret = "<YOUR_CLIENT_SECRET>"
 # Create an instance of the Google Calendar API.
 gapi = GoogleCalendarAPI(client_id=client_id, client_secret=client_secret,
              acc_token=access_token, ref_token=refresh_token, expires_in=-30,
-             token_updater=new_tokenzzz)
+             token_updater=new_token_handler)
 
 # Do something with it.
 r  = gapi.settings_list("dateFieldOrder")
