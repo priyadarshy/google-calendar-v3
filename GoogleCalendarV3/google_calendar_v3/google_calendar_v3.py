@@ -82,10 +82,10 @@ class GoogleCalendarAPI(object):
         self.__calendars_base_url() + u'{calendarId}/'.format(calendarId=calendar_id)
 
     def __settings_base_url(self):
-        return self.base_url + u'/users/me/settings/'
+        return self.base_url + u'users/me/settings/'
 
     def __acl_base_url(self, calendar_id):
-        return self.base_url + u'/calendars/{calendarId}/acl/'.format(calendarId=calendar_id)
+        return self.base_url + u'calendars/{calendarId}/acl/'.format(calendarId=calendar_id)
 
     def __acl_ext_url_rule_id(self, calendar_id, rule_id):
         return __acl_base_url(calendar_id) + u'{ruleId}/'.format(ruleId=rule_id)
@@ -127,27 +127,27 @@ class GoogleCalendarAPI(object):
         return self.session.delete(url)
 
     def calendar_list_get(self, calendar_id):
-        url =  __calendar_list_ext_url_calendar_id(calendar_id)
+        url =  self.__calendar_list_ext_url_calendar_id(calendar_id)
         return self.session.get(url)
 
     def calendar_list_insert(self, body, **kwargs):
-        url = __calendar_list_base_url()
+        url = self.__calendar_list_base_url()
         return self.session.post(url, data=body, **{'params':kwargs})
 
     def calendar_list_list(self, **kwargs):
-        url = __calendar_list_base_url()
+        url = self.__calendar_list_base_url()
         return self.session.get(url, **{'params':kwargs})
 
     def calendar_list_patch(self, body, **kwargs):
-        url =  __calendar_list_ext_url_calendar_id(calendar_id)
+        url =self.__calendar_list_ext_url_calendar_id(calendar_id)
         return self.session.patch(url, data=body, **{'params':kwargs})
 
     def calendar_list_update(self, body, **kwargs):
-        url =  __calendar_list_ext_url_calendar_id(calendar_id)
+        url =  self.__calendar_list_ext_url_calendar_id(calendar_id)
         return self.session.put(url, data=body, **{'params':kwargs})
 
     def calendar_list_watch(self, body):
-        url = __calendar_list_base_url() + u'watch/'
+        url = self.__calendar_list_base_url() + u'watch/'
         return self.session.post(url, data=body)
 
     # Calendars Resource Calls.
@@ -239,15 +239,15 @@ class GoogleCalendarAPI(object):
     # Settings Resource Calls.
 
     def settings_get(self, setting):
-        url = __settings_base_url() + u'{setting}/'.format(setting=setting)
+        url = self.__settings_base_url() + u'{setting}/'.format(setting=setting)
         return self.session.get(url)
 
     def settings_list(self, **kwargs):
-        url = __settings_base_url()
+        url = self.__settings_base_url()
         return self.session.get(url, **{u'params':kwargs})
 
     def settings_watch(self, body):
-        url = __settings_base_url + u'watch/'
+        url = self.__settings_base_url + u'watch/'
         return self.session.post(url, data=body)
 
     # Channels Resource Calls.
@@ -255,13 +255,6 @@ class GoogleCalendarAPI(object):
     def channels_stop(self, body):
         url = self.base_url + u'channels/stop/'
         return self.session.post(url, data=body)
-
-
-
-
-
-
-
 
 
 
