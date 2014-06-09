@@ -5,5 +5,3 @@ README.txt
 setup.py
 google_calendar_v3/__init__.py
 google_calendar_v3/google_calendar_v3.py
-google_calendar_v3/test/__init__.py
-google_calendar_v3/test/test_google_calendar_v3.py
